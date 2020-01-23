@@ -72,3 +72,52 @@ return phValue;
 delay(500);
   
 }
+
+int getLightSensorVal()
+{
+  int value = digitalRead(11);
+//Serial.println(value);
+
+  
+  if (value)
+  {
+    return 1;   // Light is NOT ON
+  }
+  else
+  {
+    return 0; // Light is ON
+  }
+  
+}
+
+float getHumidityVal()
+{
+   float h = dht.readHumidity();
+
+   if (isnan(h))
+   {
+    Serial.println("Failed to read Humidity!");
+    return 0;
+   }
+   else
+   {
+    return h;
+   }
+   
+}
+
+float getAirTempVal()
+{
+  float t = dht.readTemperature();
+
+   if (isnan(t))
+   {
+    Serial.println("Failed to read Air Temperature!");
+    return 0;
+    
+   }
+   else
+   {
+    return t;
+   }
+}
