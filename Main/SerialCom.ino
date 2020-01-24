@@ -14,21 +14,6 @@
 void SerialJSONCommunication()
 {
 
-  int lightVal;
-  int nutriVal;
-  int waterVal;
-  float phVal;
-  float tempVal;
-  float humidityVal;
-
-
-  nutriVal = getNutriLevelSensorVal();
-  waterVal = getWaterLevelSensorVal();
-  phVal = getpHSensorVal();
-  lightVal = getLightSensorVal();
-  humidityVal = getHumidityVal();
-  tempVal = getAirTempVal();
-
 
   StaticJsonBuffer<1000> jsonBuffer;
   JsonObject& root = jsonBuffer.createObject();
