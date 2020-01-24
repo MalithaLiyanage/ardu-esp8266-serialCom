@@ -4,10 +4,11 @@
 #include "DHT.h"
 
 
-#define DHTPIN 2     
-#define DHTTYPE DHT11 
+//#define DHTPIN 2     
+//#define DHTTYPE DHT11 
+//
+//DHT dht(DHTPIN, DHTTYPE);
 
-DHT dht(DHTPIN, DHTTYPE);
 SoftwareSerial s(5,6);
 
 int lightVal;
@@ -51,12 +52,12 @@ void loop() {
   StaticJsonBuffer<1000> jsonBuffer;
   JsonObject& root = jsonBuffer.createObject();
 
-  root["ph"] = 5.5;
-  root["nutri"] = 600;
-  root["water"] = 200;
-  root["light"] = 0;
-  root["humidity"] = 95.5;
-  root["temp"] = 24.3;
+  root["ph"] = phVal;
+  root["nutri"] = nutriVal;
+  root["water"] = waterVal;
+  root["light"] = lightVal;
+  root["humidity"] = humidityVal;
+  root["temp"] = tempVal;
 
 
   if (s.available()>0)
