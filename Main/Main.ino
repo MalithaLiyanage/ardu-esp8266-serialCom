@@ -9,6 +9,13 @@ DHT dht(DHTPIN, DHTTYPE);
 
 SoftwareSerial s(5,6);
 
+  int lightVal;
+  int nutriVal;
+  int waterVal;
+  float phVal;
+  float tempVal;
+  float humidityVal;
+
 
 void setup() 
 {
@@ -19,5 +26,14 @@ void setup()
 
 void loop() 
 {
+  nutriVal = getNutriLevelSensorVal();
+  waterVal = getWaterLevelSensorVal();
+  phVal = getpHSensorVal();
+  lightVal = getLightSensorVal();
+  humidityVal = getHumidityVal();
+  tempVal = getAirTempVal();
+
+  SerialJSONCommunication();
+
  
 }
