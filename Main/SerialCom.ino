@@ -1,16 +1,3 @@
-//Arduino code
-//#include <SoftwareSerial.h>
-//#include <ArduinoJson.h>
-//#include "DHT.h"
-//
-//
-////#define DHTPIN 2
-////#define DHTTYPE DHT11
-////
-////DHT dht(DHTPIN, DHTTYPE);
-//
-//SoftwareSerial s(5,6);
-
 void SerialJSONCommunication()
 {
 
@@ -28,7 +15,10 @@ void SerialJSONCommunication()
 
   if (s.available() > 0)
   {
+    digitalWrite(serialSendingLightPin, HIGH);
     root.printTo(s);
+    delay(500);
+    digitalWrite(serialSendingLightPin, LOW);
   }
 
 
