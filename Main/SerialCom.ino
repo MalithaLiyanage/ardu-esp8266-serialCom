@@ -1,44 +1,25 @@
 //Arduino code
-#include <SoftwareSerial.h>
-#include <ArduinoJson.h>
-#include "DHT.h"
-
-
-//#define DHTPIN 2     
-//#define DHTTYPE DHT11 
+//#include <SoftwareSerial.h>
+//#include <ArduinoJson.h>
+//#include "DHT.h"
 //
-//DHT dht(DHTPIN, DHTTYPE);
+//
+////#define DHTPIN 2
+////#define DHTTYPE DHT11
+////
+////DHT dht(DHTPIN, DHTTYPE);
+//
+//SoftwareSerial s(5,6);
 
-SoftwareSerial s(5,6);
-
-int lightVal;
-int nutriVal;
-int waterVal;
-float phVal;
-float tempVal;
-float humidityVal;
-
-
-
-float calibration = 21.34; //change this value to calibrate
-int sensorValue = 0; 
-unsigned long int avgValue; 
-float b;
-int buf[10],temp;
-
-
-
-void setup() 
+void SerialJSONCommunication()
 {
-  s.begin(9600);
-  dht.begin();
-}
- 
-void loop() {
 
-  // Get Sensor Values
-  // Put them in JSON
-  // Send
+  int lightVal;
+  int nutriVal;
+  int waterVal;
+  float phVal;
+  float tempVal;
+  float humidityVal;
 
 
   nutriVal = getNutriLevelSensorVal();
@@ -60,23 +41,10 @@ void loop() {
   root["temp"] = tempVal;
 
 
-  if (s.available()>0)
+  if (s.available() > 0)
   {
     root.printTo(s);
   }
-  
-  
-  
-  
-  
-  
 
-//  if(s.available()>0)
-//  {
-////   s.write(dht.readTemperature());
-////   s.write(dht.readHumidity());
-//    
-//    s.write(50);
-//  }
-  
+
 }
