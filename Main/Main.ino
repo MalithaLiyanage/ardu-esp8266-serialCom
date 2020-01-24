@@ -9,16 +9,19 @@ DHT dht(DHTPIN, DHTTYPE);
 
 SoftwareSerial s(5,6);
 
-  int lightVal;
-  int nutriVal;
-  int waterVal;
-  float phVal;
-  float tempVal;
-  float humidityVal;
+int lightVal;
+int nutriVal;
+int waterVal;
+float phVal;
+float tempVal;
+float humidityVal;
+
+int serialSendingLightPin = 7;
 
 
 void setup() 
 {
+  pinMode(serialSendingLightPin, OUTPUT);
   
   s.begin(9600);
   dht.begin();
