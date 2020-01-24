@@ -121,11 +121,9 @@ float getAirTempVal()
     return t;
    }
 }
-<<<<<<< HEAD
+
 
 float getWaterTempSensorVal()
 {
   return 25;
 }
-=======
->>>>>>> GetSensors
