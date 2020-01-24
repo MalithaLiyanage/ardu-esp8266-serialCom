@@ -70,12 +70,12 @@ void loop() {
   
   
 
-  if(s.available()>0)
-  {
-//   s.write(dht.readTemperature());
-//   s.write(dht.readHumidity());
-    
-    s.write(50);
-  }
+//  if(s.available()>0)
+//  {
+////   s.write(dht.readTemperature());
+////   s.write(dht.readHumidity());
+//    
+//    s.write(50);
+//  }
   
 }
