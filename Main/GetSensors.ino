@@ -1,29 +1,20 @@
 int getNutriLevelSensorVal()
 {
-  int value = digitalRead(13);  // Dummy pin number
+  int value = analogRead(A3);  // Dummy pin number
 
-  if (value)
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
+  return value;
+  
+  
 }
 
 int getWaterLevelSensorVal()
 {
-  int value = digitalRead(12);
+  int value = analogRead(A2);
 
-  if (value)
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
-  }
+  
+  return value;
+ 
+  
 }
 
 float getpHSensorVal()
@@ -37,7 +28,7 @@ float getpHSensorVal()
   
   for (int i = 0; i < 10; i++)
   {
-    buf[i] = analogRead(4); // Dummy pin
+    buf[i] = analogRead(A0); // Dummy pin
     delay(30);
   }
 
@@ -75,7 +66,7 @@ delay(500);
 
 int getLightSensorVal()
 {
-  int value = digitalRead(11);
+  int value = digitalRead(3);
 //Serial.println(value);
 
   
