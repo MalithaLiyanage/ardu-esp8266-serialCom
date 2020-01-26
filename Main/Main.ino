@@ -22,9 +22,12 @@ int serialSendingLightPin = 7;
 void setup() 
 {
   pinMode(serialSendingLightPin, OUTPUT);
+  pinMode(10, OUTPUT);
   
   s.begin(9600);
   dht.begin();
+
+  digitalWrite(10, LOW);
 }
 
 void loop() 
